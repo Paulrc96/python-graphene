@@ -1,0 +1,92 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'web_client/style.css' %}">
+
+<div class="nav-bar">
+  <a href="/python_web_client/">QUERY TEST</a>
+  <a href="/python_web_client/mutation" class="right-item">MUTACI&Oacute;N</a>
+</div>
+
+<div>
+  <h1 class="title">
+    Python Web Client
+  </h1>
+  <div class="form">
+    <form action="/python_web_client/" method="post">
+      <div class="field-container">
+        <label for="firstUsers" class="label">Usuarios</label>
+        <div>
+          <input id="firstUsers" name="firstUsers" type="text" class="input-text" value="{{form.firstUsers.value}}" />
+        </div>
+      </div>
+      <div class="field-container">
+        <label for="serverType" class="label">Servidor</label>
+        <div>
+          <select id="serverType" name="serverType" class="select">
+            <option value="JS" {% if form.serverType.value == 'JS' %} selected {% endif %}>JavaScript</option>
+            <option value="PYTHON" {% if form.serverType.value == 'PYTHON' %} selected {% endif %}>Python</option>
+            <option value="GO" {% if form.serverType.value == 'GO' %} selected {% endif %}>Go</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-container">
+        <label for="caseId" class="label">Caso</label>
+        <div>
+          <select id="caseId" name="caseId" class="select">
+            <option value="case1" {% if form.caseId.value == 'case1' %} selected {% endif %}>Caso 1</option>
+            <option value="case2" {% if form.caseId.value == 'case2' %} selected {% endif %}>Caso 2</option>
+            <option value="case3" {% if form.caseId.value == 'case3' %} selected {% endif %}>Caso 3</option>
+          </select>
+        </div>
+      </div>
+      <div class="button-container">
+        {% if formValid == False %}
+        <div class="warning-message">El formulario no es v&aacute;lido</div>
+        {% endif %}
+        {% if showQueryingMessage == True %}
+        <div class="warning-message">Consulta en progreso</div>
+        {% endif %}
+        <input id="submitButton" type="submit" class="button" value="CONSULTAR" />
+      </div>
+    </form>
+  </div>
+  <div class="tests-container">
+    <div class="header">
+      <div class="server">
+        SERVIDOR
+      </div>
+      <div class="case">
+        CASO
+      </div>
+      <div class="first">
+        USUARIOS
+      </div>
+      <div class="time">
+        TIEMPO (segundos)
+      </div>
+    </div>
+    <div id="testsList" class="tests-list">
+      {% for test in tests %}
+      <div class="row">
+        <div class="server">
+          {{ test.serverName }}
+        </div>
+        <div class="case">
+          {{ test.caseName }}
+        </div>
+        <div class="first">
+          {{ test.firstUsers }}
+        </div>
+        <div class="time">
+          {% if test.time is not None %}
+            {{test.time}}
+          {% else %}
+            En progreso...
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,114 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.nav-bar {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.nav-bar .right-item {
+  margin-left: 10px;
+}
+
+.title {
+  font-size: 24px;
+  text-align: center;
+}
+
+.label {
+  font-size: 14px;
+}
+
+.field-container {
+  margin-top: 10px;
+}
+
+.input-text {
+  padding: 5px;
+  height: 35px;
+  width: calc(100%);
+}
+
+.select {
+  padding: 5px;
+  height: 35px;
+  width: calc(100%);
+}
+
+.button-container {
+  margin-top: 20px;
+}
+
+.button {
+  height: 35px;
+  width: 100%;
+}
+
+.form {
+  max-width: 300px;
+  margin: auto;
+}
+
+.tests-container {
+  max-width: 700px;
+  margin: 20px auto;
+}
+
+.tests-container .header {
+  display: flex;
+  height: 30px;
+  padding: 5px 10px;
+}
+
+.tests-list {
+  overflow-y: auto;
+  height: 400px;
+  overflow-y: auto;
+  background-color: #f8f8f8;
+  padding: 10px 0;
+}
+
+.tests-container .row {
+  display: flex;
+  height: 25px;
+  padding: 5px 10px;
+}
+
+.tests-container .server {
+  width: 40%;
+  text-align: left;
+  padding-right: 10px;
+  overflow: hidden;
+}
+
+.tests-container .case {
+  width: 40%;
+  text-align: left;
+  overflow: hidden;
+}
+
+.tests-container .first {
+  width: 40%;
+  text-align: right;
+  overflow: hidden;
+}
+
+.tests-container .time {
+  width: 40%;
+  text-align: right;
+  overflow: hidden;
+}
+
+.warning-message {
+  font-size: 14px;
+  text-align: center;
+}

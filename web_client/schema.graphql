@@ -1,0 +1,66 @@
+type User {
+  id: Int!
+  name: String
+  email: String
+  last_name: String
+  birthday: String  
+  address: String
+  email_verified_at: String
+  password: String
+  remember_token: String
+  created_at: String
+  updated_at: String
+  posts: [Post]
+}
+  
+type Post {
+  post_id: Int
+  user_id: Int
+  title: String
+  description: String
+  created_at: String
+  updated_at: String	
+  comments: [Comment]
+}
+
+type Comment {
+  comment_id: Int
+  description: String
+  post_id: Int
+  user_id: Int
+  created_at: String
+  updated_at: String
+}
+
+type Query {
+  users(first: Int): [User]
+}
+
+input ClientInput {
+  name: String
+  email: String
+  last_name: String
+  birthday: String  
+  address: String   
+  created_at: String!
+}
+
+type Client {
+  id: Int!
+  name: String
+  email: String
+  last_name: String
+  birthday: String  
+  address: String   
+  created_at: String!
+  updated_at: String
+}
+
+type Mutation {
+  createClient(client: ClientInput!): Client!
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}
